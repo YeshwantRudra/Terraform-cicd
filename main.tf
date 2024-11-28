@@ -101,17 +101,6 @@ resource "aws_route_table_association" "private_subnet_association" {
 }
 
 
-
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "5.78.0"
-    }
-  }
-}
-
-
 #1. Security Group for ALB (Internet -> ALB)
 resource "aws_security_group" "alb_sg" {
   name        = "yt-alb-sg"
