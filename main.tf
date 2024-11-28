@@ -113,6 +113,7 @@ terraform {
 
 provider "aws" {
   region ="ap-south-1"
+  profile ="default"
 }
 
 
@@ -206,7 +207,7 @@ resource "aws_lb_listener" "alb_listener" {
 resource "aws_launch_template" "ec2_launch_template" {
   name = "yt-web-server"
 
-  image_id      = "ami-0aebec83a182ea7ea" //Copy the ami id from aws console
+  image_id      = "ami-0dee22c13ea7a9a67" //Copy the ami id from aws console
   instance_type = "t2.micro"
 
   network_interfaces {
