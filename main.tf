@@ -111,11 +111,6 @@ terraform {
   }
 }
 
-provider "aws" {
-  region ="ap-south-1"
-  profile ="default"
-}
-
 
 #1. Security Group for ALB (Internet -> ALB)
 resource "aws_security_group" "alb_sg" {
