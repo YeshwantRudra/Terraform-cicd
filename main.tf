@@ -1,5 +1,5 @@
  # write terraform script to deploy static application with auto scaling and load balancer whep cpu usgae is above 50 and scale down server when cpu is blow 50(cloud watch,alaram)
-
+ # hello
 resource "aws_vpc" "custom_vpc" {
   cidr_block           = "10.0.0.0/16"
   enable_dns_support   = true
