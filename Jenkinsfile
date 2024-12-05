@@ -35,23 +35,14 @@ pipeline {
             }
         }
     }
+    
     post {
-        always {
-            emaiext (
-                subject: 'Pipeline Status: ${BUILD_NUMBER}',
-                body: '''<html>
-                            <body>
-                                <p>Build Status: ${BUILD_STATUS}</p>
-                                <p>Build Number: ${BUILD_NUMBER}</p>
-                                <p>Check the <a href ='${BUILD_URL}'>console output</a>.</p>
-                            </body>
-                        </html>''',
-                to: 'rudrayeshwant1411@gmai.com',
-                from: 'jenkins@demo.com',
-                replyTo: 'jenkins@demo.com',
-                mimeType: 'text/html'
-            )
+            success {
+                emailext attachLog: true, body: 'Email sen from Jenkins', subject: 'Test Email - Success', to: 'rudrayeshwant1411@gmail.com'
         }
+            failure {
+                emailext attachLog: true, body: 'Email sen from Jenkins', subject: 'Test Email - Failure', to: 'rudrayeshwant1411@gmail.com'
+            }
     }
 }
 
