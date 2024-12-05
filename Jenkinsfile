@@ -10,15 +10,6 @@ pipeline {
                 git branch: 'main', credentialsId: 'Git-cred', url: 'https://github.com/YeshwantRudra/Terraform-cicd.git'
             }
         }
-        stage('Sonar Analysis') {
-            steps {
-                withSonarQubeEnv('sonar') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Terraform-cicd \
-                    -Dsonar.sources=. \
-                    -Dsonar.projectKey=Terraform-cicd '''
-                }
-            }
-        }
         stage('Terraform init'){
             steps {
                 sh 'terraform init'
