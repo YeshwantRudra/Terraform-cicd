@@ -165,12 +165,12 @@ resource "aws_lb" "app_lb" {
 
 # Target Group for ALB
 resource "aws_lb_target_group" "alb_ec2_tg" {
-  name     = "yt-web-server-tg-14-11"
+  name     = "yt-web-server-tg-14-96"
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.custom_vpc.id
   tags = {
-    Name = "yt-alb_ec2_tg-14-11"
+    Name = "yt-alb_ec2_tg-14-96"
   }
 }
 
@@ -183,13 +183,13 @@ resource "aws_lb_listener" "alb_listener" {
     target_group_arn = aws_lb_target_group.alb_ec2_tg.arn
   }
   tags = {
-    Name = "yt-alb-listener-14-11"
+    Name = "yt-alb-listener-14-96"
   }
 }
 
 #3. Launch Template for EC2 Instances
 resource "aws_launch_template" "ec2_launch_template" {
-  name = "yt-web-server-14-11"
+  name = "yt-web-server-14-96"
 
   image_id      = "ami-0dee22c13ea7a9a67" //Copy the ami id from aws console
   instance_type = "t2.micro"
@@ -202,14 +202,14 @@ resource "aws_launch_template" "ec2_launch_template" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-      Name = "yt-ec2-web-server-14-11"
+      Name = "yt-ec2-web-server-14-96"
     }
   }
 }
 
 # Auto Scaling Group
 resource "aws_autoscaling_group" "ec2_asg" {
-  name                = "yt-web-server-asg-14-11"
+  name                = "yt-web-server-asg-14-96"
   desired_capacity    = 2
   min_size            = 2
   max_size            = 3
